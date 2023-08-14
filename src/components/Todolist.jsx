@@ -8,13 +8,27 @@ const Todolist = () => {
 
     const addtodo = (newtodo) =>{
         settodo([...todo,newtodo])
-    }
+    } 
+    const handleDelete = (index) => {
+    const updatedTodo = todo.filter((i) => i !== index);
+    settodo(updatedTodo);
+  };
+
+  const handleUpdate = (index, updatedTodo) => {
+    const updatedList = todo.map((item, i) => (i === index ? updatedTodo : item));
+    settodo(updatedList);
+  };
 
   return (
     <div>
         <Header addtodo ={addtodo}/>
         <ul>
-        <li>{todo}</li>
+          {todo.map((item, index) => (
+            <li key={index}>{item}
+            <button onClick={handleUpdate(index, prompt('Enter updated todo:'))}>Update</button>
+            <button onClick={ handleDelete(index)}>Delete</button></li> 
+          ))}
+        
         </ul>
       
     </div>

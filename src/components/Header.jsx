@@ -6,7 +6,7 @@ const Header = ({addtodo}) => {
 
     const HandleOnClick = ()=>{
         addtodo(data);
-        console.log(data);
+        
 
     }
 
@@ -23,7 +23,7 @@ const Header = ({addtodo}) => {
     <div>
       <div>
         <h1>To-Do List</h1>
-        <textarea onChange={HandleOnChange}  placeholder='enetr the data'/>
+        <input type='text' onChange={HandleOnChange}  placeholder='enetr the data'/>
         <button onClick={HandleOnClick}>Add</button>
       </div>
     </div>
